@@ -111,7 +111,7 @@ function getInningScore(inningcb){
     let awayScore = 0;
     homeScore = homeScore + inningcb();
     awayScore = awayScore + inningcb();
-    
+
     return {
       "Away": awayScore,
       "Home": homeScore
@@ -163,15 +163,20 @@ Use the scoreboard function below to do the following:
 
 function scoreboard(getInningScorecb, inningcb, numInning){
   let scoreSummary = [];
-  for(let i=1; i < numInning + 1 ; i++){
-    scoreSummary.push(`Inning ${i}: Away ${inningcb()} - Home ${inningcb()}`)
-  }
-  const score = getInningScorecb(inningcb, numInning);
-  if (score.homeScore === score.awayScore){
-   scoreSummary.push(`This game will require extra innings: Away: ${score.awayScore} - Home: ${score.homeScore} `)
-  } else {
-    scoreSummary.push(`Final Score: Away: ${score.awayScore} - Home: ${score.homeScore}`)
   
+  let homeScore = 0;
+  let awayScore = 0;
+
+  for(let i=1; i < numInning + 1 ; i++){
+    const score = getInningScorecb(inningcb);
+    homeScore = homeScore + score.Home;
+    awayScore = awayScore + score.Away;
+    scoreSummary.push(`Inning ${i}: Away ${score.Away} - Home ${score.Home}`);
+  };
+  if (homeScore === awayScore){
+   scoreSummary.push(`This game will require extra innings: Away: ${homeScore} - Home: ${awayScore} `)
+  } else {
+    scoreSummary.push(`Final Score: Away: ${awayScore} - Home: ${homeScore}`)
 }
  return scoreSummary;
 }
