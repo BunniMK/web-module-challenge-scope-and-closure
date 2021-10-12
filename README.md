@@ -85,7 +85,9 @@ dansRoll();
 a. Where is closure used in this code? How can you tell?
     - The anonymous function inside.
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+    - The Math.random would run every time, giving the "newRoll" a different value.
 c. What is the lexical scope of `newRoll`? 
+    - the return function inside the personalDice function
 
 
 ### Task 3 - Stretch Goals

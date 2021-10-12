@@ -45,6 +45,8 @@ function counterMaker() {
   }
 }
 
+
+
 const counter1 = counterMaker();
 
 // counter2 code
@@ -67,7 +69,7 @@ NOTE: This will be a callback function for the tasks below
 
 function inning(){
     return Math.round(Math.random()*2);
-};
+}
 
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
@@ -99,7 +101,7 @@ function finalScore(inningcb, numInning){
   }
 }
 
-console.log(finalScore(inning,9));
+// console.log(finalScore(inning,9));
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
@@ -163,7 +165,7 @@ Use the scoreboard function below to do the following:
 
 function scoreboard(getInningScorecb, inningcb, numInning){
   let scoreSummary = [];
-  
+
   let homeScore = 0;
   let awayScore = 0;
 
@@ -172,7 +174,7 @@ function scoreboard(getInningScorecb, inningcb, numInning){
     homeScore = homeScore + score.Home;
     awayScore = awayScore + score.Away;
     scoreSummary.push(`Inning ${i}: Away ${score.Away} - Home ${score.Home}`);
-  };
+  }
   if (homeScore === awayScore){
    scoreSummary.push(`This game will require extra innings: Away: ${homeScore} - Home: ${awayScore} `)
   } else {
@@ -181,8 +183,8 @@ function scoreboard(getInningScorecb, inningcb, numInning){
  return scoreSummary;
 }
 
+
 console.log(scoreboard(getInningScore, inning, 9));
-// console.log(scoreboard(getInningScore, inning, 9));
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
 function foo(){
